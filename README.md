@@ -57,7 +57,7 @@ The control variable is measured additional GPU time. GRPO runs to a predetermin
 The supported environment is Python 3.10–3.12 on one NVIDIA H100 80 GB or A100 80 GB.
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/LL333111/rlvr-posttraining.git
 cd rlvr-posttraining
 bash scripts/setup.sh
 bash scripts/smoke_test.sh
