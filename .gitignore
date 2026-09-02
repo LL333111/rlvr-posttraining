@@ -12,6 +12,7 @@ checkpoints/**
 !checkpoints/.gitkeep
 data/processed/**
 !data/processed/.gitkeep
+!data/processed/splits.json
 results/**
 !results/.gitkeep
 generations/**

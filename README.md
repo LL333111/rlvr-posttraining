@@ -171,6 +171,10 @@ Tests cover numeric parsing, the verifier, group metrics, split reproducibility,
 | `scripts/` | One-command setup, runs, evaluation, and analysis |
 | `tests/` | CPU-fast unit tests |
 
+The public repository intentionally keeps final model weights outside ordinary
+Git history. See [ARTIFACTS.md](ARTIFACTS.md) for the complete saved-artifact
+inventory, archive checksums, and restoration layout.
+
 ## Interpretation policy
 
 All three outcomes are valid:
