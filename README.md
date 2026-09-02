@@ -46,7 +46,7 @@ bash scripts/setup.sh
 bash scripts/smoke_test.sh
 ```
 
-The smoke test uses 20 SFT examples, 10 RL prompts, one GRPO optimizer step, and 10 examples per evaluation benchmark. It fails unless GRPO changes at least one actual LoRA tensor.
+The smoke test uses 20 SFT examples, 10 RL prompts, ten GRPO optimizer steps, and 10 examples per evaluation benchmark. The longer smoke rollout budget reduces zero-signal batches while keeping the test short. It fails unless GRPO changes at least one actual LoRA tensor.
 
 ## Formal run
 
