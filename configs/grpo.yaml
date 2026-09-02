@@ -12,7 +12,7 @@ training:
   learning_rate: 1.0e-5
   lr_scheduler_type: linear
   optimizer: adamw_torch_fused
-  warmup_ratio: 0.05
+  warmup_steps: 25
   per_device_train_batch_size: 4
   gradient_accumulation_steps: 4
   max_steps: 500

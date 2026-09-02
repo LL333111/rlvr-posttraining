@@ -47,7 +47,7 @@ def run(config_path: Path) -> None:
         learning_rate=float(training["learning_rate"]),
         lr_scheduler_type=training["lr_scheduler_type"],
         optim=training["optimizer"],
-        warmup_ratio=float(training["warmup_ratio"]),
+        warmup_steps=int(training["warmup_steps"]),
         per_device_train_batch_size=int(training["per_device_train_batch_size"]),
         per_device_eval_batch_size=int(training["per_device_eval_batch_size"]),
         gradient_accumulation_steps=int(training["gradient_accumulation_steps"]),
