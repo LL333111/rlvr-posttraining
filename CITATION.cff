@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: Compute-Matched Verifier-Guided LLM Post-Training
+message: If you use this experimental pipeline, cite this repository and all upstream assets.
+type: software
+authors:
+  - family-names: Liu
+    given-names: Lucas
+version: 0.1.0
+date-released: 2026-09-01
+license: MIT

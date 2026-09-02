@@ -1,0 +1,21 @@
+model:
+  name: Qwen/Qwen2.5-1.5B-Instruct
+  revision: null
+  dtype: bfloat16
+  trust_remote_code: false
+evaluation:
+  per_device_batch_size: 5
+  max_new_tokens: 64
+  seed: 42
+  bootstrap_samples: 100
+  limit: 10
+benchmarks:
+  gsm8k: data/processed/gsm8k_test.jsonl
+  svamp: data/processed/svamp_test.jsonl
+checkpoints:
+  base: null
+  sft: checkpoints/smoke/sft
+  continued_sft: checkpoints/smoke/continued_sft
+  grpo: checkpoints/smoke/grpo
+output_dir: results/smoke/evaluation
+generations_dir: generations/smoke/evaluation
