@@ -1,0 +1,57 @@
+{
+  "config_path": "configs/continued_sft.yaml",
+  "hardware": {
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "git": {
+      "commit": "69723360464bda8e9fab41d984361b850dc65330",
+      "dirty": false
+    },
+    "gpu_count": 1,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H100 80GB HBM3",
+        "total_memory_bytes": 85028372480
+      }
+    ],
+    "packages": {
+      "accelerate": "1.14.0",
+      "datasets": "4.8.5",
+      "peft": "0.20.0",
+      "safetensors": "0.8.0",
+      "torch": "2.8.0+cu128",
+      "transformers": "5.16.1",
+      "trl": "1.11.0"
+    },
+    "platform": "Linux-6.8.0-1026-oracle-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128"
+  },
+  "optimizer_steps": 7421,
+  "output_checkpoint": "checkpoints/continued_sft",
+  "output_checkpoint_sha256": "b3c3b026d4d382b56154c3978fab110303faaeec9f03619f904150dfbfdb9a83",
+  "peak_vram_bytes": 5427431424,
+  "source_checkpoint": "checkpoints/sft",
+  "source_checkpoint_sha256": "2743a1933587045ba213cca1289008f841b93b4340e93e576c19f4987ae42301",
+  "stopped_for_budget": true,
+  "total_run_wall_clock_seconds": 4972.172518681735,
+  "train_metrics": {
+    "entropy": 0.0046815883833914995,
+    "epoch": 39.474666666666664,
+    "mean_token_accuracy": 0.9995715618133545,
+    "num_input_tokens_seen": 39421968,
+    "num_tokens": 26395432.0,
+    "total_flos": 3.143047380653998e+17,
+    "train_loss": 0.024148477121828438,
+    "train_runtime": 4967.7116,
+    "train_samples_per_second": 322.08,
+    "train_steps_per_second": 20.13
+  },
+  "training_gpu_count": 1,
+  "training_gpu_hours": 1.3800213924055504,
+  "training_tokens_seen": 39421968,
+  "training_wall_clock_seconds": 4968.077012659982,
+  "upstream_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "upstream_model_commit": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+}

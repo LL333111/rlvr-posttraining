@@ -1,0 +1,16 @@
+[
+  {
+    "accuracy": 0.465,
+    "checkpoint": "checkpoints/continued_sft/checkpoint-7400",
+    "examples": 200,
+    "gpu_hours": 1.3749257896706049,
+    "step": 7400
+  },
+  {
+    "accuracy": 0.475,
+    "checkpoint": "checkpoints/continued_sft",
+    "examples": 200,
+    "gpu_hours": 1.3799192857468088,
+    "step": 7421
+  }
+]

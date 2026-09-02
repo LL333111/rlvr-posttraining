@@ -1,0 +1,47 @@
+{
+  "accuracy": 0.8166666666666667,
+  "adapter_path": null,
+  "benchmark": "svamp",
+  "bootstrap_95_ci": [
+    0.7733333333333333,
+    0.8566666666666667
+  ],
+  "checkpoint": "base",
+  "correct": 245,
+  "decoding": {
+    "do_sample": false,
+    "num_beams": 1
+  },
+  "examples": 300,
+  "hardware": {
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "git": {
+      "commit": "69723360464bda8e9fab41d984361b850dc65330",
+      "dirty": false
+    },
+    "gpu_count": 1,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H100 80GB HBM3",
+        "total_memory_bytes": 85028372480
+      }
+    ],
+    "packages": {
+      "accelerate": "1.14.0",
+      "datasets": "4.8.5",
+      "peft": "0.20.0",
+      "safetensors": "0.8.0",
+      "torch": "2.8.0+cu128",
+      "transformers": "5.16.1",
+      "trl": "1.11.0"
+    },
+    "platform": "Linux-6.8.0-1026-oracle-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128"
+  },
+  "mean_completion_tokens": 144.02333333333334,
+  "raw_generations": "generations/evaluation/base_svamp.jsonl",
+  "wall_clock_seconds": 73.54388439655304
+}

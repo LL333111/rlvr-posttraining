@@ -1,0 +1,16 @@
+[
+  {
+    "accuracy": 0.54,
+    "checkpoint": "checkpoints/grpo/checkpoint-475",
+    "examples": 200,
+    "gpu_hours": 1.313443667940899,
+    "step": 475
+  },
+  {
+    "accuracy": 0.555,
+    "checkpoint": "checkpoints/grpo",
+    "examples": 200,
+    "gpu_hours": 1.3785964714942707,
+    "step": 500
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "accuracy": 0.465,
+  "adapter_path": "checkpoints/continued_sft/checkpoint-7400",
+  "benchmark": "gsm8k",
+  "bootstrap_95_ci": [
+    0.395,
+    0.535
+  ],
+  "checkpoint": "continued_sft",
+  "correct": 93,
+  "decoding": {
+    "do_sample": false,
+    "num_beams": 1
+  },
+  "examples": 200,
+  "hardware": {
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "git": {
+      "commit": "69723360464bda8e9fab41d984361b850dc65330",
+      "dirty": false
+    },
+    "gpu_count": 1,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H100 80GB HBM3",
+        "total_memory_bytes": 85028372480
+      }
+    ],
+    "packages": {
+      "accelerate": "1.14.0",
+      "datasets": "4.8.5",
+      "peft": "0.20.0",
+      "safetensors": "0.8.0",
+      "torch": "2.8.0+cu128",
+      "transformers": "5.16.1",
+      "trl": "1.11.0"
+    },
+    "platform": "Linux-6.8.0-1026-oracle-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128"
+  },
+  "mean_completion_tokens": 119.155,
+  "raw_generations": "generations/evaluation/continued_sft_gsm8k_sweep_step_7400.jsonl",
+  "wall_clock_seconds": 85.93666048720479
+}

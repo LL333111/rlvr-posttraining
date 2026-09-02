@@ -23,6 +23,7 @@ def line_plot(
     ylabel: str,
     title: str,
     output: str | Path,
+    rolling_window: int | None = None,
 ) -> None:
     plt = _pyplot()
     figure, axis = plt.subplots(figsize=(7.2, 4.4))
@@ -35,7 +36,24 @@ def line_plot(
         axis.legend(frameon=False)
     else:
         rows = sorted(series, key=lambda row: float(row[x]))
-        axis.plot([row[x] for row in rows], [row[y] for row in rows], linewidth=2)
+        x_values = [row[x] for row in rows]
+        y_values = [float(row[y]) for row in rows]
+        if rolling_window and rolling_window > 1:
+            axis.plot(x_values, y_values, linewidth=1, alpha=0.3, label="Per-step reward")
+            rolling = [
+                sum(y_values[max(0, index - rolling_window + 1) : index + 1])
+                / min(index + 1, rolling_window)
+                for index in range(len(y_values))
+            ]
+            axis.plot(
+                x_values,
+                rolling,
+                linewidth=2.5,
+                label=f"{rolling_window}-step rolling mean",
+            )
+            axis.legend(frameon=False)
+        else:
+            axis.plot(x_values, y_values, linewidth=2)
     axis.set(xlabel=xlabel, ylabel=ylabel, title=title)
     axis.grid(alpha=0.25)
     figure.tight_layout()

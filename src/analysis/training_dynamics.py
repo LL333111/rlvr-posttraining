@@ -27,6 +27,7 @@ def main() -> None:
         ylabel="Mean verifier reward",
         title="GRPO reward during training",
         output=args.figures_dir / "grpo_reward_curve.png",
+        rolling_window=25,
     )
     totals = {key: sum(int(row[key]) for row in groups) for key in ("all_wrong", "mixed", "all_correct")}
     denominator = sum(totals.values())

@@ -8,4 +8,5 @@ python -m src.evaluation.checkpoint_sweep --branch continued_sft --limit 200
 python -m src.evaluation.checkpoint_sweep --branch grpo --limit 200
 python -m src.analysis.training_dynamics
 python -m src.analysis.compute_analysis
+python -m src.analysis.paired_comparison
 python -m src.analysis.error_analysis --examples 20

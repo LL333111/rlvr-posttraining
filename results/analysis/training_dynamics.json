@@ -1,0 +1,16 @@
+{
+  "mean_completion_tokens": 130.739875,
+  "mean_correct_completion_tokens": 117.04815498154981,
+  "mean_incorrect_completion_tokens": 159.5031007751938,
+  "reward_group_counts": {
+    "all_correct": 816,
+    "all_wrong": 224,
+    "mixed": 960
+  },
+  "reward_group_fractions": {
+    "all_correct": 0.408,
+    "all_wrong": 0.112,
+    "mixed": 0.48
+  },
+  "rollouts": 8000
+}

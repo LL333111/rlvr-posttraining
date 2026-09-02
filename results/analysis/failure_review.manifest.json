@@ -1,0 +1,42 @@
+{
+  "seed": 42,
+  "requested_examples": 20,
+  "selected_ids": [
+    "gsm8k-test-787",
+    "gsm8k-test-1287",
+    "gsm8k-test-779",
+    "gsm8k-test-70",
+    "gsm8k-test-290",
+    "gsm8k-test-327",
+    "gsm8k-test-275",
+    "gsm8k-test-354",
+    "gsm8k-test-1246",
+    "gsm8k-test-567",
+    "gsm8k-test-759",
+    "gsm8k-test-227",
+    "gsm8k-test-106",
+    "gsm8k-test-1241",
+    "gsm8k-test-798",
+    "gsm8k-test-1310",
+    "gsm8k-test-982",
+    "gsm8k-test-767",
+    "gsm8k-test-10",
+    "gsm8k-test-1119"
+  ],
+  "category_options": [
+    "arithmetic error",
+    "wrong strategy",
+    "correct reasoning / wrong extraction",
+    "incomplete reasoning",
+    "overlong reasoning",
+    "answer-format error",
+    "RL-specific degeneration",
+    "successful corrected reasoning"
+  ],
+  "status": "manual review completed",
+  "category_counts": {
+    "successful corrected reasoning": 11,
+    "RL-specific degeneration": 8,
+    "wrong strategy": 1
+  }
+}
