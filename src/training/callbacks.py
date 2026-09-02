@@ -22,7 +22,14 @@ class JsonlLogCallback(TrainerCallback):
         self.last_tokens = 0.0
         return control
 
-    def on_log(self, args: Any, state: Any, control: Any, logs: dict[str, Any] | None = None, **_: Any):
+    def on_log(
+        self,
+        args: Any,
+        state: Any,
+        control: Any,
+        logs: dict[str, Any] | None = None,
+        **_: Any,
+    ):
         if state.is_world_process_zero and logs:
             elapsed = time.monotonic() - self.started
             telemetry: dict[str, Any] = {"elapsed_seconds": elapsed}

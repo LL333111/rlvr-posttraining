@@ -198,4 +198,7 @@ This is a small-model, single-domain, one-primary-seed study. GPU time is practi
 - GRPO is an existing algorithm introduced in [DeepSeekMath](https://arxiv.org/abs/2402.03300).
 - Training uses the official [TRL GRPOTrainer](https://huggingface.co/docs/trl/grpo_trainer), [TRL SFTTrainer](https://huggingface.co/docs/trl/sft_trainer), and [PEFT](https://huggingface.co/docs/peft/index).
 
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the licensing and redistribution
+boundary around upstream models, datasets, papers, and runtime dependencies.
+
 Original work in this repository is the experiment design, pipeline construction, verifier integration, compute-controlled baseline, logging, evaluation, analysis, and reproducibility engineering. It does not claim invention of GRPO/RLVR, training a foundation model from scratch, or authorship of upstream assets.

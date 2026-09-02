@@ -42,8 +42,10 @@ def main() -> None:
     ]
     for row in rows:
         vram = f"{row['peak_vram_gb']:.2f}" if row["peak_vram_gb"] is not None else "n/a"
+        training_tokens = row["training_tokens"] or "n/a"
         lines.append(
-            f"| {row['method']} | {row['extra_gpu_hours']:.3f} | {row['optimizer_steps']} | {row['training_tokens'] or 'n/a'} | {vram} |"
+            f"| {row['method']} | {row['extra_gpu_hours']:.3f} | "
+            f"{row['optimizer_steps']} | {training_tokens} | {vram} |"
         )
     output.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -56,8 +58,10 @@ def main() -> None:
                 eval_payloads[(checkpoint, benchmark)] = _load(path)
     if len(eval_payloads) == 8:
         labels = {
-            "base": "Base", "sft": "Reasoning SFT",
-            "continued_sft": "Continued SFT", "grpo": "GRPO / RLVR",
+            "base": "Base",
+            "sft": "Reasoning SFT",
+            "continued_sft": "Continued SFT",
+            "grpo": "GRPO / RLVR",
         }
         result_lines = [
             "| Model | GSM8K exact match | SVAMP exact match | Extra GPU hours |",
@@ -67,9 +71,10 @@ def main() -> None:
             extra = "—"
             if checkpoint in metadata:
                 extra = f"{metadata[checkpoint]['training_gpu_hours']:.3f}"
+            gsm8k = eval_payloads[(checkpoint, "gsm8k")]["accuracy"]
+            svamp = eval_payloads[(checkpoint, "svamp")]["accuracy"]
             result_lines.append(
-                f"| {labels[checkpoint]} | {eval_payloads[(checkpoint, 'gsm8k')]['accuracy']:.3%} | "
-                f"{eval_payloads[(checkpoint, 'svamp')]['accuracy']:.3%} | {extra} |"
+                f"| {labels[checkpoint]} | {gsm8k:.3%} | {svamp:.3%} | {extra} |"
             )
         (args.results_dir / "analysis" / "main_results.md").write_text(
             "\n".join(result_lines) + "\n", encoding="utf-8"
@@ -80,7 +85,8 @@ def main() -> None:
         path = args.results_dir / "evaluation" / f"{branch}_gsm8k_sweep.json"
         if path.is_file():
             for row in _load(path):
-                sweep_rows.append({**row, "method": "Continued SFT" if branch == "continued_sft" else "GRPO / RLVR"})
+                method = "Continued SFT" if branch == "continued_sft" else "GRPO / RLVR"
+                sweep_rows.append({**row, "method": method})
     if sweep_rows:
         line_plot(
             sweep_rows,

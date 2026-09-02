@@ -129,7 +129,9 @@ def load_trainable_adapter(model_config: dict[str, Any], adapter_path: str | Pat
 
 
 def ensure_trainable_adapter(model: Any) -> int:
-    trainable = sum(parameter.numel() for parameter in model.parameters() if parameter.requires_grad)
+    trainable = sum(
+        parameter.numel() for parameter in model.parameters() if parameter.requires_grad
+    )
     if trainable <= 0:
         raise RuntimeError("No trainable parameters; the adapter was loaded frozen")
     return trainable

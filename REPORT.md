@@ -27,6 +27,10 @@ The broader recipe did not beat the upstream model. Reasoning SFT sharply reduce
 
 The GRPO and continued-SFT branches loaded the same hashed `checkpoints/sft` source adapter. Their recorded source hashes are identical.
 
+The run metadata preserves the original experiment commit `6972336`. Public commit `b75dcce`
+contains the byte-identical source tree (`7c3fcc4e20c0cbfac02890598145012a33a80a7d`) after
+commit-author metadata was normalized for the public release.
+
 ## Main held-out results
 
 | Model | GSM8K exact match | GSM8K 95% CI | SVAMP exact match | SVAMP 95% CI | Extra GPU hours |

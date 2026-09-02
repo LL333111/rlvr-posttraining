@@ -109,7 +109,9 @@ def matched_wall_seconds(metadata_file: str | Path, fallback_gpu_hours: float) -
     payload = json.loads(path.read_text(encoding="utf-8"))
     target_gpu_hours = float(payload["training_gpu_hours"])
     snapshot = hardware_snapshot()
-    current_gpu_count = int(os.environ.get("WORLD_SIZE", "1")) if snapshot.get("cuda_available") else 0
+    current_gpu_count = (
+        int(os.environ.get("WORLD_SIZE", "1")) if snapshot.get("cuda_available") else 0
+    )
     if current_gpu_count <= 0:
         raise RuntimeError("Compute-matched training requires at least one GPU")
     return target_gpu_hours * 3600.0 / current_gpu_count

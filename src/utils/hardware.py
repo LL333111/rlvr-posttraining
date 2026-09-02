@@ -31,7 +31,16 @@ def hardware_snapshot() -> dict[str, Any]:
         "gpus": [],
         "packages": {},
     }
-    for package in ("accelerate", "datasets", "peft", "safetensors", "torch", "transformers", "trl"):
+    packages = (
+        "accelerate",
+        "datasets",
+        "peft",
+        "safetensors",
+        "torch",
+        "transformers",
+        "trl",
+    )
+    for package in packages:
         try:
             payload["packages"][package] = version(package)
         except PackageNotFoundError:

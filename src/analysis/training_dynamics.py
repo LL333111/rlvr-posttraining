@@ -11,7 +11,9 @@ from src.utils.logging import write_json
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--reward-groups", type=Path, default=Path("results/grpo/reward_groups.jsonl"))
+    parser.add_argument(
+        "--reward-groups", type=Path, default=Path("results/grpo/reward_groups.jsonl")
+    )
     parser.add_argument("--rollouts", type=Path, default=Path("generations/grpo/rollouts.jsonl"))
     parser.add_argument("--figures-dir", type=Path, default=Path("figures"))
     args = parser.parse_args()
@@ -29,7 +31,10 @@ def main() -> None:
         output=args.figures_dir / "grpo_reward_curve.png",
         rolling_window=25,
     )
-    totals = {key: sum(int(row[key]) for row in groups) for key in ("all_wrong", "mixed", "all_correct")}
+    totals = {
+        key: sum(int(row[key]) for row in groups)
+        for key in ("all_wrong", "mixed", "all_correct")
+    }
     denominator = sum(totals.values())
     fractions = {key: value / denominator if denominator else 0.0 for key, value in totals.items()}
     grouped_bar(
@@ -43,13 +48,22 @@ def main() -> None:
     rollouts = load_jsonl(args.rollouts)
     correct_lengths = [row["completion_tokens"] for row in rollouts if row["correct"]]
     incorrect_lengths = [row["completion_tokens"] for row in rollouts if not row["correct"]]
+    mean_completion_tokens = (
+        sum(row["completion_tokens"] for row in rollouts) / len(rollouts) if rollouts else 0.0
+    )
+    mean_correct_tokens = (
+        sum(correct_lengths) / len(correct_lengths) if correct_lengths else None
+    )
+    mean_incorrect_tokens = (
+        sum(incorrect_lengths) / len(incorrect_lengths) if incorrect_lengths else None
+    )
     summary = {
         "reward_group_counts": totals,
         "reward_group_fractions": fractions,
         "rollouts": len(rollouts),
-        "mean_completion_tokens": sum(row["completion_tokens"] for row in rollouts) / len(rollouts) if rollouts else 0.0,
-        "mean_correct_completion_tokens": sum(correct_lengths) / len(correct_lengths) if correct_lengths else None,
-        "mean_incorrect_completion_tokens": sum(incorrect_lengths) / len(incorrect_lengths) if incorrect_lengths else None,
+        "mean_completion_tokens": mean_completion_tokens,
+        "mean_correct_completion_tokens": mean_correct_tokens,
+        "mean_incorrect_completion_tokens": mean_incorrect_tokens,
     }
     write_json("results/analysis/training_dynamics.json", summary)
     print(json.dumps(summary, indent=2))

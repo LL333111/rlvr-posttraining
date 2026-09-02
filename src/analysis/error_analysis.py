@@ -14,7 +14,9 @@ from src.training.common import load_jsonl
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--sft", type=Path, default=Path("generations/evaluation/sft_gsm8k.jsonl"))
-    parser.add_argument("--grpo", type=Path, default=Path("generations/evaluation/grpo_gsm8k.jsonl"))
+    parser.add_argument(
+        "--grpo", type=Path, default=Path("generations/evaluation/grpo_gsm8k.jsonl")
+    )
     parser.add_argument("--output", type=Path, default=Path("results/analysis/failure_review.csv"))
     parser.add_argument("--examples", type=int, default=20)
     parser.add_argument("--seed", type=int, default=42)
@@ -23,7 +25,9 @@ def main() -> None:
     grpo = {row["id"]: row for row in load_jsonl(args.grpo)}
     shared = sorted(set(sft) & set(grpo))
     changed = [key for key in shared if bool(sft[key]["correct"]) != bool(grpo[key]["correct"])]
-    unchanged_failures = [key for key in shared if not sft[key]["correct"] and not grpo[key]["correct"]]
+    unchanged_failures = [
+        key for key in shared if not sft[key]["correct"] and not grpo[key]["correct"]
+    ]
     rng = random.Random(args.seed)
     rng.shuffle(changed)
     rng.shuffle(unchanged_failures)
